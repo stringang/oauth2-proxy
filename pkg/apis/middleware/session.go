@@ -23,7 +23,7 @@ func CreateTokenToSessionFunc(verify VerifyFunc) TokenToSessionFunc {
 			Subject           string   `json:"sub"`
 			Email             string   `json:"email"`
 			Verified          *bool    `json:"email_verified"`
-			PreferredUsername string   `json:"preferred_username"`
+			PreferredUsername string   `json:"name"`
 			Groups            []string `json:"groups"`
 		}
 
