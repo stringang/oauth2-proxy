@@ -3,6 +3,7 @@ package sessions
 import (
 	"bytes"
 	"context"
+	"encoding/base64"
 	"fmt"
 	"io"
 	"time"
@@ -147,7 +148,7 @@ func (s *SessionState) GetClaim(claim string) []string {
 		copy(groups, s.Groups)
 		return groups
 	case "preferred_username":
-		return []string{s.PreferredUsername}
+		return []string{base64.StdEncoding.EncodeToString([]byte(s.PreferredUsername))}
 	default:
 		return []string{}
 	}
